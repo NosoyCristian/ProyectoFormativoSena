@@ -1,0 +1,77 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+}
+
+#infoSup {
+    margin: 0px 0px 0px 0px;
+    background: grey;
+}
+
+.navbar-custom {
+    background-color: white;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: black;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)
+ No media query for `xs` since this is the default in Bootstrap*/
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+    .navbar-custom .navbar-nav .nav-link {
+        font-size: 0.8em;
+    }
+    body div nav a img {
+        width: 120px;
+        height: 40px;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .navbar-custom .navbar-nav .nav-link {
+        font-size: 0.6em;
+        ;
+    }
+    body div nav a img {
+        width: 130;
+        height: 38px;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .navbar-custom .navbar-nav .nav-link {
+        font-size: 0.8em;
+        ;
+    }
+    body div nav a img {
+        width: 200px;
+        height: 65px;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .navbar-custom .navbar-nav .nav-link {
+        font-size: 1em;
+        ;
+    }
+    body div nav a img {
+        width: 250px;
+        height: 70px;
+    }
+}

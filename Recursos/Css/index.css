@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'lato';
+    src: url("../Fuentes/Lato-Regular.ttf")format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BAHNSCHRIFT';
+    src: url("../Fuentes/BAHNSCHRIFT.TTF")format('TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url("../Fuentes/BebasNeue-Regular.eot")format('eot'), url("../Fuentes/BebasNeue-Regular.woff")format('woff'), url("../Fuentes/BebasNeue-Regular.ttf")format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tomatoes';
+    src: url("../Fuentes/TOMATOESPersonalUse.ttf")format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    background: #f5f5f5;
+    color: #151515;
+}
+
+body h1 {
+    font-family: 'BAHNSCHRIFT';
+}
+
+body h5 {
+    font-family: 'BebasNeue';
+}
+
+body h3 {
+    font-style: italic;
+}
+
+.iconosSup_i {
+    margin: 0;
+    padding: 0 2px 6px 0;
+    width: 20px;
+    height: 20px;
+    background: none;
+}
+
+.iconosSup_d {
+    margin: 0px 20px 0px 0px;
+    padding: 0px 0px 3px 0px;
+    width: 20px;
+    height: 20px;
+    background: none;
+}
+
+#infoSup {
+    margin: 0px 0px 0px 0px;
+    background: grey;
+    font-family: 'BAHNSCHRIFT';
+    font-size: 1em;
+}
+
+.navbar-custom {
+    background-color: #f5f5f5;
+    ;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: black;
+    font-family: 'lato';
+    /* font-size: 20px; */
+}
+
+.navbar-custom .navbar-nav .dropdown-item {
+    color: black;
+    font-family: 'lato';
+    /* font-size: 20px; */
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgb(255, 102, 203);
+}
+
+.carousel-inner img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.carousel-inner {
+    height: 400px;
+}
+
+.spanNaranja {
+    color: orange;
+}
+
+.banners {
+    width: 100%;
+    text-align: center;
+    font-family: 'Tomatoes';
+    font-style: oblique;
+    font-size: 40px;
+}
+
+.kard {
+    width: 140px;
+    height: 140px;
+    padding: 10px 0px 10px 0px;
+    background: none;
+}
+
+.kard2 {
+    width: 100%px;
+    height: 240px;
+}
+
+.card-group .card {
+    background-color: #f5f5f5;
+}
+
+.card-body p {
+    font-family: 'lato';
+    text-align: justify;
+    /* text-justify: unset; */
+}
+
+#btncontac {
+    background: orange;
+    color: white;
+}
+
+#textoCentrado {
+    text-align: center;
+}
