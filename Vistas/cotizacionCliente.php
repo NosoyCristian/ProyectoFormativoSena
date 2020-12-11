@@ -130,6 +130,7 @@ if(isset($_SESSION["carrito"])){
                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Precio</th>
+                            <th>Cantidad</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -140,8 +141,9 @@ if(isset($_SESSION["carrito"])){
                             <td class="codigoClase" id="<?php echo $indice ?>"><?php echo $indice ?></td>
                             <td><?php echo $arreglo["nombre"] ?></td>
                             <td class="precioClase"><?php echo $arreglo["precio"] ?></td>
+                            <td class="cantidadClase"><?php echo $arreglo["cantidad"] ?></td>
                             <td>
-                               
+                               <button class="btn btn-danger">Eliminar</button>
                             </td>
                         </tr>
                         <?php } } ?>
@@ -167,6 +169,7 @@ if(isset($_SESSION["carrito"])){
         let observaciondePago = document.getElementById('txtObservacionPago').value;
         let productosCl = $(".codigoClase");
         let preciosCl = $(".precioClase");
+        let cantidadesCl = $(".cantidadClase");
 
         let fr = new FormData();
 
@@ -183,16 +186,21 @@ if(isset($_SESSION["carrito"])){
             fr.append("precios[]", e.innerHTML);
         })
 
+        cantidadesCl.each(function (i, e) {
+            fr.append("cantidades[]", e.innerHTML);
+        })
+
 
         $.ajax({
-            url: '../Controladores/productoControlador.php',
+            url: '../Controladores/cotizacionControlador.php',
             type: 'POST',
             data: fr,
             dataType: 'html',
             processData: false,
             contentType: false
         }).done(function (respuesta) {
-            alert(respuesta);
+            alert("Cotización enviada con exito.");
+            location.href = "../Vistas/index.php";
             if (respuesta == 1) {
                 Swal.fire("Se creo la receta", "Los datos fueron guardados exitosamente", "success");
                 // location.href = "misRecetas.jsp";

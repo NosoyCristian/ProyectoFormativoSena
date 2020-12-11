@@ -133,9 +133,11 @@ elseif(isset($_POST["guardarProducto"]))
     $idP=$_POST["id"];
     $nombreP=$_POST["nombre"];
     $precioP=$_POST["precio"];
+    $cantidadP=$_POST["cantidad"];
     session_start();
     $_SESSION["carrito"][$idP]["nombre"]=$nombreP;
     $_SESSION["carrito"][$idP]["precio"]=$precioP;
+    $_SESSION["carrito"][$idP]["cantidad"]=$cantidadP;
     echo sizeof($_SESSION["carrito"]);
 }
 elseif(isset($_POST["enviarCotizacion"]))

@@ -51,7 +51,7 @@ class cotizacionControlador{
     }
 }
 
-$productoControlador = new productoControlador();
+//$productoControlador = new productoControlador();
 
 
 if(isset($_POST["enviarCotizacion"]))
@@ -62,6 +62,7 @@ if(isset($_POST["enviarCotizacion"]))
     $cotizacion->setObservaciondePago($_POST["observaciondePago"]);
     $precios = [];
     $ids = [];
+    $cantidades=[];
 
     $idCotizacion = $crudCotizacion->registrarCotizacion($cotizacion);
     if($idCotizacion!=0){
@@ -71,11 +72,21 @@ if(isset($_POST["enviarCotizacion"]))
         foreach ( $_POST["productos"] as $codigo ) { 
             $ids[]=$codigo; 
         }
+        foreach ( $_POST["cantidades"] as $codigo ) { 
+            $cantidades[]=$codigo; 
+        }
         for($i=0;$i<count($ids);$i++){
             $detalleCotizacion = new detalleCotizacionModelo();
+            $detalleCotizacion->setIdCotizacion($idCotizacion);
             $detalleCotizacion->setIdProducto($ids[$i]);
-            $detalleCotizacion->setIdProducto($ids[$i]);
+            $detalleCotizacion->setPrecioBase($precios[$i]);
+            $detalleCotizacion->setCantidad($cantidades[$i]);
+             $crudCotizacion->registrarDetalle($detalleCotizacion);
         }
+        session_start();
+        session_destroy();
+        //header("Location:../Vistas/index.php");
     }
+    //echo $precios[0];
 }
 ?>

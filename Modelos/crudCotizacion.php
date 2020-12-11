@@ -4,15 +4,39 @@ class crudCotizacion{
 
     public function registrarCotizacion($cotizacion){
         $db = db::conectar();
-        $sql = $db->prepare('INSERT INTO producto(idtipodeProducto,nombre,nombreImagen,fechadeAlta,descripcion,precioBase) 
-        VALUES(:idtipodeProducto,:nombre,:nombreImagen,:fechadeAlta,:descripcion,:precioBase)');
+        $idUltimaCotizacion=0;
+        $sql = $db->prepare('INSERT INTO cotizacion(idCliente,fechadeAlta,observacion,
+        observacionPago,iva,estado) 
+        VALUES(:idCliente,NOW(),:observacion,:observacionPago,16,"Solicitud")');
 
-        $sql->bindValue('idtipodeProducto',$producto->getIdtipodeProducto());
-        $sql->bindValue('nombre',$producto->getNombre());
-        $sql->bindValue('nombreImagen',$producto->getNombreImagen());
-        $sql->bindValue('fechadeAlta',$producto->getFechadeAlta());
-        $sql->bindValue('descripcion',$producto->getDescripcion());
-        $sql->bindValue('precioBase',$producto->getPrecioBase());
+        $sql->bindValue('idCliente',1);
+        $sql->bindValue('observacion',$cotizacion->getObservacion());
+        $sql->bindValue('observacionPago',$cotizacion->getObservaciondePago());
+
+        // var_dump($usuario);
+        try{
+            $sql->execute();
+            $idUltimaCotizacion = $db->lastInsertId();
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
+        //die();
+        // md5() Función para encriptar
+        db::cerrarConexion($db);
+        return $idUltimaCotizacion;
+    }
+
+    public function registrarDetalle($detalleCotizacion){
+        $db = db::conectar();
+        $idUltimaCotizacion=0;
+        $sql = $db->prepare('INSERT INTO detallecotizacion(idCotizacion,idProducto,cantidad,
+        precioBase) 
+        VALUES(:idCotizacion,:idProducto,:cantidad,:precioBase)');
+
+        $sql->bindValue('idCotizacion',$detalleCotizacion->getIdCotizacion());
+        $sql->bindValue('idProducto',$detalleCotizacion->getIdProducto());
+        $sql->bindValue('cantidad',$detalleCotizacion->getCantidad());
+        $sql->bindValue('precioBase',$detalleCotizacion->getPrecioBase());
 
         // var_dump($usuario);
         try{
@@ -24,7 +48,6 @@ class crudCotizacion{
         // md5() Función para encriptar
         db::cerrarConexion($db);
     }
-
     
 }
 ?>

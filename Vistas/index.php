@@ -1,3 +1,13 @@
+<?php
+ session_start();
+ if(isset($_SESSION["carrito"])){
+     $numeroProductos=sizeof($_SESSION["carrito"]);
+     //var_dump($_SESSION["carrito"]);
+
+ }else{
+     $numeroProductos=0;
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +84,7 @@
                         <a class="nav-link" href="#">| CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart fa-2x"></i></a>
+                        <a class="nav-link" href="cotizacionCliente.php"><strong id="contadorProductos">(<?php echo $numeroProductos ?>)</strong><i class="fas fa-shopping-cart fa-2x"></i></a>
                     </li>
                 </ul>
             </div>

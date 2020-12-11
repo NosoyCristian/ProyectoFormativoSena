@@ -111,16 +111,19 @@
                         <h5 class="card-title " id="txtNombreP<?php echo $producto->getIdProducto() ?>"><?php echo $producto->getNombre() ?></h5>
                         <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <button type="text" onclick="GuardarProducto(<?php echo $producto->getIdProducto() ?>)" class="btn btn-primary">Cotizar</button>
                             </div>
-                            <div class="col-8">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
                                     <input type="text" name="" id="txtPrecioProducto<?php echo $producto->getIdProducto() ?>" value="<?php echo $producto->getPrecioBase() ?>" readonly class="form-control">
                                 </div>
+                            </div>
+                            <div class="col-3 ">
+                                <input type="number" class="form-control" min="1" value="1" name="" id="txtCantidadProducto<?php echo $producto->getIdProducto() ?>">
                             </div>
                         </div>
                     </div>
@@ -142,6 +145,7 @@
         //var nombrePInner = nombreP.innerHTML;
         var precioP =document.getElementById('txtPrecioProducto'+id).value;
         //alert(nombreP+precioP);
+        var cantidadP =document.getElementById('txtCantidadProducto'+id).value;
 
         var formData = new FormData();
       
@@ -149,6 +153,7 @@
         formData.append('id',id);
         formData.append('nombre',nombreP);
         formData.append('precio',precioP);
+        formData.append('cantidad',cantidadP);
         $.ajax({
             url:'../Controladores/productoControlador.php',
             type:'POST',
